@@ -6,73 +6,79 @@ def Login_value():
     with open("Login.txt","a"):
         print(f"{User.get(),Name.get(),Password.get()}")
 def Login():
-    global User,Name,Password
-    screen1=Toplevel(screen)
+    global User, Name, Password
+    screen1 = Toplevel(screen)
     screen1.title("Student Login Page")
-    screen1.geometry("400x330")
-#variable
-    User=StringVar()
-    Name=StringVar()
-    Password=StringVar()
-#label
-    Label(screen1, text="User").grid()
-    Label(screen1, text="Name").grid()
-    Label(screen1, text="Password").grid()
-#entry
-    Entry(screen1,textvariable="User").grid(row=0,column=2)
-    Entry(screen1,textvariable="Name").grid(row=1,column=2)
-    Entry(screen1,textvariable="Password").grid(row=2,column=2)
-    Button(screen1, text="Login", bg="blue", fg="black",width=10,height=1, command=Login_value).grid(row=3, column=2)
-    Button(screen1, text="NewUser", bg="red", fg="black",width=20,height=1, command=NewUser).grid(row=3, column=10)
+    screen1.geometry("1000x700+0+0")
+
+    # variable
+    User = StringVar()
+    Name = StringVar()
+    Password = StringVar()
+    # label
+    Label(screen1, text="User", font="Helvetica 18 bold", width=8, height=5).grid()
+    Entry(screen1, width=50).grid(row=0, column=2)
+    Label(screen1, text="Name", font="Helvetica 18 bold", width=8, height=5).grid()
+    Entry(screen1, width=50).grid(row=1, column=2)
+    Label(screen1, text="Password", font="Helvetica 18 bold", width=8, height=5).grid()
+    Entry(screen1, width=50).grid(row=2, column=2)
+    # Button
+    Button(screen1, text="Login", font="Helvetica 20 ", borderwidth=5, bg="blue", fg="black", width=10, height=1,
+           command=Login_value).grid(row=3, column=2)
+    Button(screen1, text="NewUser", font="Helvetica 20 ", borderwidth=5, bg="red", fg="black", width=20, height=0,
+           command=NewUser).grid(row=3, column=10)
+
+
 def NewUser_value():
     print("Newuser Successfuly registered")
     with open("newuser.txt","a") :
         print(f"{Name.get(),Reg_no.get(),Specalization.get(),Mobile_no.get(),Email.get()}")
 def NewUser():
-    screen2=Toplevel(screen)
+    screen2 = Toplevel(screen)
     screen2.title("NewUser")
-    screen2.geometry("400x330")
-    global Name, Reg_no ,Specalization , Mobile_no , Email
-# variables
+    screen2.geometry("1000x700+0+0")
+    global Name, Reg_no, Specalization, Mobile_no, Email
+    # variables
     Name = StringVar()
     Reg_no = StringVar()
     Specalization = StringVar()
     Mobile_no = StringVar()
     Email = StringVar()
-#labels
-    Label(screen2, text="Name").grid()
-    Label(screen2, text="reg no").grid()
-    Label(screen2, text="Specalization").grid()
-    Label(screen2, text="Mobile no.").grid()
-    Label(screen2, text="Email").grid()
-# entry for new form
-    Entry(screen2, textvariable=Name).grid(row=0,column=2)
-    Entry(screen2, textvariable=Reg_no).grid(row=1,column=2)
-    Entry(screen2, textvariable=Specalization).grid(row= 2,column=2)
-    Entry(screen2, textvariable=Mobile_no).grid(row=3,column=2)
-    Entry(screen2, textvariable=Email).grid(row=4,column=2)
-    Button(screen2,text="Register",bg="red",fg="black",command=NewUser_value).grid(row=5,column=2)
+    # labels
+    Label(screen2, text="Name", font="Helvetica 18 bold", width=25, height=3).grid()
+    Label(screen2, text="reg no", font="Helvetica 18 bold", width=25, height=3).grid()
+    Label(screen2, text="Specalization", font="Helvetica 18 bold", width=25, height=3).grid()
+    Label(screen2, text="Mobile no.", font="Helvetica 18 bold", width=25, height=3).grid()
+    Label(screen2, text="Email", font="Helvetica 18 bold", width=25, height=3).grid()
+    # entry for new form
+    Entry(screen2, width=50, bd=2).grid(row=0, column=2)
+    Entry(screen2, width=50, bd=2).grid(row=1, column=2)
+    Entry(screen2, width=50, bd=2).grid(row=2, column=2)
+    Entry(screen2, width=50, bd=2).grid(row=3, column=2)
+    Entry(screen2, width=50, bd=2).grid(row=4, column=2)
+    Button(screen2, text="Register",font="helvetica 18 bold", bg="red", fg="black",width=13,height=2 ,command=NewUser_value).grid(row=5, column=2)
 def Request_for_Superviser_Value():
     pass
 def Request_for_Superviser():
     screen3=Toplevel(screen)
     screen3.title("Requests for Superviser")
-    screen3.geometry("400x330")
+    screen3.geometry("1000x700+0+0")
+
 #button for login   padx=20,pady=20
-    Button(screen3,text="Login",bg="blue",fg="black",width=10,height=2).grid(row=0,column=2, padx=20,pady=20)
+    Button(screen3,text="Login",bg="lightblue",fg="black",bd=3,width=40,height=2).grid(row=1,column=2, padx=40,pady=5)
 #button for New user
-    Button(screen3,text="New user",bg="blue",fg="black",width=10,height=2).grid(row=1,column=2, padx=20,pady=20)
+    Button(screen3,text="New user",bg="lightblue",fg="black",bd=3,width=40,height=2).grid(row=1,column=3, padx=40,pady=50)
 #Button for Open Hours
-    Button(screen3,text="Open Hours",bg="blue",fg="black",width=10,height=2).grid(row=2,column=2, padx=20,pady=20)
+    Button(screen3,text="Open Hours",bg="lightblue",fg="black",bd=3,width=40,height=2).grid(row=2,column=2, padx=40,pady=50)
 #button for Select Students
-    Button(screen3,text="Select Students",bg="blue",fg="black",width=10,height=2).grid(row=3,column=2, padx=20,pady=20)
+    Button(screen3,text="Select Students",bg="lightblue",fg="black",bd=3,width=40,height=2).grid(row=2,column=3, padx=40,pady=50)
 
 
 def main_screen():
     global screen
     screen = Tk()
-    screen.geometry("1050x700+0+0")
-    screen.minsize(450,300)
+    screen.geometry("1000x700+0+0")
+    screen.minsize(1000,700)
 #==Title=====
     screen.title("Capstone supervisor allocation portal")
 #==logo===
@@ -102,4 +108,3 @@ def main_screen():
 
     screen.mainloop()
 main_screen()
-
